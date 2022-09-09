@@ -10,9 +10,9 @@ import (
 
 func TestRouter(t *testing.T) {
 	r := frontend.Routes()
-	mock := httptest.NewServer(r)
+	srv := httptest.NewServer(r)
 
-	resp, err := http.Get(mock.URL + "/")
+	resp, err := http.Get(srv.URL + "/")
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -20,7 +20,7 @@ func TestRouter(t *testing.T) {
 		t.Errorf("** Failed: Response from server was %v; expected %v", resp.StatusCode, http.StatusOK)
 	}
 
-	resp, err = http.Post(mock.URL+"/", "text/plain", bytes.NewReader([]byte("Hello Error!")))
+	resp, err = http.Post(srv.URL+"/", "text/plain", bytes.NewReader([]byte("Hello Error!")))
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -28,4 +28,23 @@ func TestRouter(t *testing.T) {
 		t.Errorf("** Failed: Response from server was %v; expected %v", resp.StatusCode, http.StatusMethodNotAllowed)
 	}
 
+}
+
+func TestStaticFileServer(t *testing.T) {
+	r := frontend.Routes()
+	srv := httptest.NewServer(r)
+
+	resp, err := http.Get(srv.URL + "/assets/")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if resp.StatusCode != http.StatusOK {
+		t.Errorf("** Failed: Response from server was %v; expected %v", resp.StatusCode, http.StatusOK)
+	}
+
+	cnt := resp.Header.Get("Content-Type")
+	exp := "text/plain; charset=utf-8"
+	if cnt != exp {
+		t.Errorf("** Failed: Content type of response was %v; expected %v", cnt, exp)
+	}
 }

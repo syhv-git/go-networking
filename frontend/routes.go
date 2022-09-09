@@ -10,5 +10,6 @@ func Routes() *http.ServeMux {
 
 	m.HandleFunc("/", pages.Build)
 
+	m.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 	return m
 }

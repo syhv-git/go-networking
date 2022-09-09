@@ -1,0 +1,20 @@
+html {
+    box-sizing: content-box;
+}
+
+.navbar {
+    display: grid;
+    background: lightslategray;
+    width: available;
+    grid-template-columns: 30px 1fr 50px 2fr ;
+}
+
+.home-icon {
+    grid-column-start: 2;
+    justify-content: center;
+}
+
+.search-bar {
+    grid-column-start: 4;
+    width: content-box;
+}
