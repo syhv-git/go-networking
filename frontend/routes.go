@@ -8,8 +8,14 @@ import (
 func Routes() *http.ServeMux {
 	m := http.NewServeMux()
 
+	a := getAssets()
+	m.Handle("/assets/", a)
 	m.HandleFunc("/", pages.Build)
 
-	m.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("assets"))))
 	return m
+}
+
+func getAssets() http.Handler {
+	d := http.Dir("../assets/")
+	return http.StripPrefix("/assets/", http.FileServer(d))
 }
