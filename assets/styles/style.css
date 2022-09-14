@@ -58,7 +58,7 @@ body {
     width: 100%;
     padding: 2px 23px 2px 30px;
     outline: 0;
-    background: #c9c9c9;
+    background: #c9c9c9c9;
 }
 
 .search-icon {
@@ -77,7 +77,7 @@ body {
 }
 
 .search-input:hover, .search-input:focus {
-    border: 1px solid #009688;
+    border: 1px solid #009688ff;
     background-color: white;
 }
 
@@ -98,14 +98,14 @@ body {
 }
 
 .nav-pill .nav-item:hover {
-    background-color: #320E3B;
+    background-color: #320E3Bff;
     transition: 0.3s ease-in-out;
 }
 
 .nav-link {
     font-family: sans-serif;
     text-decoration: none;
-    color: #A8A9AD;
+    color: #A8A9ADff;
     padding: 0.5rem 1rem
 }
 
@@ -119,22 +119,22 @@ body {
 }
 
 .settings:hover {
-    box-shadow: #320E3B;
+    box-shadow: #320E3Bff;
 }
 
 .settings-icon {
     height: 2rem;
 }
 
-.spacer {
-    height: 2rem;
-}
-
 .page-footer {
     position: relative;
-    background-color: #1c1c1c;
+    background-color: #1c1c1cff;
     color: white;
     z-index: 10;
+}
+
+.spacer {
+    height: 2rem;
 }
 
 .footer-div {
@@ -161,7 +161,7 @@ body {
 .footer-list {
     display: flex;
     flex-flow: column nowrap;
-    border-left: 2px solid #696969;
+    border-left: 2px solid #696969ff;
     padding-left: 52px;
     list-style-type: none;
 }
@@ -184,8 +184,20 @@ body {
     align-self: flex-start;
 }
 
+#particles-js canvas {
+    display: block;
+    background-image: linear-gradient(#64646464, #36363664, #1c1c1cff, #000000);
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+    -webkit-transition: opacity .8s ease, -webkit-transform 1.4s ease;
+    transition: opacity .8s ease, transform 1.4s ease
+}
+
 #particles-js {
     height: calc(100vh - 3rem);
+    width: 100%;
     position: fixed;
     top: 3rem;
     z-index: 0;
@@ -193,4 +205,24 @@ body {
 
 .landing-page {
     height: 200vh;
+    width: 100%;
+}
+
+.landing-spacer {
+    display: flex;
+    height: 100vh;
+}
+
+.welcome {
+
+}
+
+.card {
+    background-color: #BBBBBB;
+    z-index: 1;
+}
+
+.card-1 {
+    position: relative;
+    height: 250px;
 }
