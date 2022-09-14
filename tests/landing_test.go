@@ -4,7 +4,6 @@ import (
 	"go-networking/frontend/pages"
 	"net/http"
 	"net/http/httptest"
-	"os"
 	"testing"
 )
 
@@ -18,12 +17,9 @@ func TestLandingPageContent(t *testing.T) {
 	h := http.HandlerFunc(pages.BuildLanding)
 	h.ServeHTTP(rec, req)
 
-	e, err := os.ReadFile("index.html")
-	if err != nil {
-		t.Fatal(err)
-	}
-	a := rec.Body.String()
-	if a != string(e) {
-		t.Errorf("** Failed: Unexpected response body: got \n%v\n want \n%v\n", a, string(e))
+	cnt := rec.Header().Get("Content-Type")
+	exp := "text/html; charset=utf-8"
+	if cnt != exp {
+		t.Errorf("** Failed: Content type of response was %v; expected %v", cnt, exp)
 	}
 }
