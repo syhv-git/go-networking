@@ -6,8 +6,8 @@ import (
 	"net/http"
 )
 
-func Routes() *mux.Router {
-	a := getAssets("assets")
+func Routes(dir string) *mux.Router {
+	a := getAssets(dir)
 	m := mux.NewRouter()
 	m.PathPrefix("/assets/").Handler(a).Methods("GET")
 
