@@ -186,6 +186,11 @@ body {
 
 #particles-js {
     height: calc(100vh - 3rem);
-    position: relative;
+    position: fixed;
     top: 3rem;
+    z-index: 0;
+}
+
+.landing-page {
+    height: 200vh;
 }
