@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	mux := frontend.Routes("assets")
+	mux := frontend.Routes()
 
 	log.Fatal(http.ListenAndServe(":9001", mux))
 }
