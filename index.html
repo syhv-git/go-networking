@@ -9,15 +9,52 @@
 </head>
 
 <body>
-    <div class="navbar">
-        <a class="home-icon" href="/">My App</a>
-        <div class="search-bar">
-            <form action="/search" method="GET">
-                <label>
-                    <input autofocus class="search-input" value="" placeholder="Search..." type="search" name="search"/>
-                </label>
-            </form>
-        </div>
+<header class="page-header">
+    <div class="page-header-div">
+        <nav class="navbar">
+            <div class="nav-left">
+                <img class="logo" src="assets/images/menu.png" alt="menu">
+                <a class="home-icon" href="/">
+                    <img class="logo" src="assets/images/logo.png" alt="logo"/>
+                </a>
+                <div class="search-bar">
+                    <img class="search-icon" alt="search" src="assets/images/search.png"/>
+                    <form action="/search" method="GET">
+                        <label>
+                            <input autofocus class="search-input" value="" placeholder="Search..." type="search"
+                                   name="search"/>
+                        </label>
+                    </form>
+                    <img class="clear-icon" alt="clear" src="assets/images/clear.png"/>
+                </div>
+            </div>
+            <div class="nav-right">
+                <img class="settings-icon" src="assets/images/settings.png" alt="settings">
+            </div>
+        </nav>
     </div>
+</header>
+
+<div id="particles-js" >
+</div>
+
+<footer class="page-footer">
+    <div class="footer-left">
+        <a class="gh" href="https://github.com/syhv-git" rel="noopener">
+            <img class="footer-icon" alt="syhv-git" src="assets/images/github.png"/>
+        </a>
+        <a class="li" href="https://www.linkedin.com/in/scottvore/" rel="noopener">
+            <img class="footer-icon" alt="scottvore" src="assets/images/linkedin.png"/>
+        </a>
+    </div>
+    <div class="footer-left-div">
+        <div class="column-divider"></div>
+    </div>
+</footer>
+<!-- Import Particles.js and app.js files -->
+<script src="/assets/particles.js-master/particles.js">
+</script>
+<script src="/assets/particles.js-master/demo/js/app.js">
+</script>
 </body>
 </html>

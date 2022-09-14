@@ -1,20 +1,122 @@
-html {
-    box-sizing: content-box;
+body {
+    background: #2e2e2e;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    max-height: fit-content;
+    margin: 0;
+}
+
+.page-header {
+    background: #4C2A85;
+    border-bottom: none;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+}
+
+.page-header-div {
+    margin: 0 auto;
+    padding: 0 25px;
+    max-width: initial;
 }
 
 .navbar {
-    display: grid;
-    background: lightslategray;
-    width: available;
-    grid-template-columns: 30px 1fr 50px 2fr ;
+    align-items: center;
+    display: flex;
+    height: 3.5rem;
+    justify-content: space-between;
+}
+
+.nav-left {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
 }
 
 .home-icon {
-    grid-column-start: 2;
+    align-items: center;
     justify-content: center;
+    padding-right: 25px;
+}
+
+.logo {
+    height: 3rem;
 }
 
 .search-bar {
-    grid-column-start: 4;
-    width: content-box;
+    position: relative;
+    min-width: 175px;
+}
+
+.search-input {
+    border: 1px solid grey;
+    border-radius: 25px;
+    height: 25px;
+    width: 100%;
+    padding: 2px 23px 2px 30px;
+    outline: 0;
+    background: #aaaaaa;
+}
+
+.search-icon {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    width: 14px;
+}
+
+.clear-icon {
+    position: absolute;
+    right: 8px;
+    width: 12px;
+    cursor: pointer;
+    visibility: hidden;
+}
+
+.search-input:hover, .search-input:focus {
+    border: 1px solid #009688;
+    background-color: white;
+}
+
+.settings-icon {
+    height: 2rem;
+}
+
+.page-footer {
+    display: grid;
+    grid-template-columns: 10% 10% 70% 10%;
+    grid-template-rows: 10% 80% 10%;
+    grid-gap: 15px;
+    text-align: center;
+    background-color: #1c1c1c;
+    color: white;
+    z-index: 10;
+}
+
+.footer-left {
+    grid-area: 2/2/3/3;
+    grid-template-rows: 1fr 1fr;
+}
+
+.footer-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.footer-left-div {
+    grid-row: 2/3;
+}
+
+.column-divider {
+    border-right: 1px solid #DEDEDE;
+    margin-right:-10px;
+    padding-right:10px;
+}
+
+#particles-js {
+    height: calc(100vh - 6em);
 }

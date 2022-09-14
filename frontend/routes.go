@@ -1,21 +1,22 @@
 package frontend
 
 import (
+	"github.com/gorilla/mux"
 	"go-networking/frontend/pages"
 	"net/http"
 )
 
-func Routes() *http.ServeMux {
-	m := http.NewServeMux()
+func Routes(dir string) *mux.Router {
+	a := getAssets(dir)
+	m := mux.NewRouter()
+	m.PathPrefix("/assets/").Handler(a).Methods("GET")
 
-	a := getAssets()
-	m.Handle("/assets/", a)
-	m.HandleFunc("/", pages.Build)
+	m.HandleFunc("/", pages.Build).Methods("GET")
+	m.HandleFunc("/search-results", pages.SearchResults).Methods("GET")
 
 	return m
 }
 
-func getAssets() http.Handler {
-	d := http.Dir("../assets/")
-	return http.StripPrefix("/assets/", http.FileServer(d))
+func getAssets(dir string) http.Handler {
+	return http.StripPrefix("/assets/", http.FileServer(http.Dir(dir)))
 }

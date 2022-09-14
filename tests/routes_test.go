@@ -9,7 +9,7 @@ import (
 )
 
 func TestStaticFileServer(t *testing.T) {
-	r := frontend.Routes()
+	r := frontend.Routes("../assets")
 	srv := httptest.NewServer(r)
 
 	resp, err := http.Get(srv.URL + "/assets/")
@@ -28,7 +28,7 @@ func TestStaticFileServer(t *testing.T) {
 }
 
 func TestRouteHandlers(t *testing.T) {
-	r := frontend.Routes()
+	r := frontend.Routes("../assets")
 	srv := httptest.NewServer(r)
 
 	resp, err := http.Get(srv.URL + "/")
