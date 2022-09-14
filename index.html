@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Webapp</title>
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/assets/styles/style.css">
 </head>
 
 <body>
@@ -13,7 +13,6 @@
     <div class="page-header-div">
         <nav class="navbar">
             <div class="nav-left">
-                <img class="logo" src="assets/images/menu.png" alt="menu">
                 <a class="home-icon" href="/">
                     <img class="logo" src="assets/images/logo.png" alt="logo"/>
                 </a>
@@ -28,15 +27,27 @@
                     <img class="clear-icon" alt="clear" src="assets/images/clear.png"/>
                 </div>
             </div>
-            <div class="nav-right">
-                <img class="settings-icon" src="assets/images/settings.png" alt="settings">
+            <div>
+                <ul class="nav-pill">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/resume">Resume</a>
+                    </li>
+                    <a class="settings" href="/">
+                        <img class="settings-icon" src="assets/images/settings.png" alt="settings">
+                    </a>
+                </ul>
             </div>
         </nav>
     </div>
 </header>
 
-<div id="particles-js" >
-</div>
+{{ .Body }}
 
 <footer class="page-footer">
     <div class="footer-left">
@@ -51,10 +62,5 @@
         <div class="column-divider"></div>
     </div>
 </footer>
-<!-- Import Particles.js and app.js files -->
-<script src="/assets/particles.js-master/particles.js">
-</script>
-<script src="/assets/particles.js-master/demo/js/app.js">
-</script>
 </body>
 </html>

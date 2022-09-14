@@ -38,8 +38,8 @@ func TestRouteHandlers(t *testing.T) {
 	if resp.StatusCode != http.StatusOK {
 		t.Errorf("** Failed: Response from server was %v; expected %v", resp.StatusCode, http.StatusOK)
 	}
-
 	defer resp.Body.Close()
+
 	resp, err = http.Post(srv.URL+"/", "text/plain", bytes.NewReader([]byte("Hello Error!")))
 	if err != nil {
 		t.Fatal(err)
@@ -48,4 +48,35 @@ func TestRouteHandlers(t *testing.T) {
 		t.Errorf("** Failed: Response from server was %v; expected %v", resp.StatusCode, http.StatusMethodNotAllowed)
 	}
 
+	resp, err = http.Get(srv.URL + "/search-results")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if resp.StatusCode != http.StatusOK {
+		t.Errorf("** Failed: Response from server was %v; expected %v", resp.StatusCode, http.StatusOK)
+	}
+
+	resp, err = http.Get(srv.URL + "/about")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if resp.StatusCode != http.StatusOK {
+		t.Errorf("** Failed: Response from server was %v; expected %v", resp.StatusCode, http.StatusOK)
+	}
+
+	resp, err = http.Get(srv.URL + "/projects")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if resp.StatusCode != http.StatusOK {
+		t.Errorf("** Failed: Response from server was %v; expected %v", resp.StatusCode, http.StatusOK)
+	}
+
+	resp, err = http.Get(srv.URL + "/resume")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if resp.StatusCode != http.StatusOK {
+		t.Errorf("** Failed: Response from server was %v; expected %v", resp.StatusCode, http.StatusOK)
+	}
 }

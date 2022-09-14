@@ -1,14 +1,14 @@
 package pages
 
 import (
-	"html/template"
 	"net/http"
+	"os"
 )
 
-var tpl = template.Must(template.ParseFiles("index.html"))
-
-func Build(w http.ResponseWriter, r *http.Request) {
-	if err := tpl.Execute(w, nil); err != nil {
-		panic(err)
+func BuildLanding(w http.ResponseWriter, r *http.Request) {
+	b, err := os.ReadFile("assets/html/landing.html")
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusNotFound)
 	}
+	render(w, b)
 }

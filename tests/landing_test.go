@@ -15,7 +15,7 @@ func TestLandingPageContent(t *testing.T) {
 	}
 
 	rec := httptest.NewRecorder()
-	h := http.HandlerFunc(pages.Build)
+	h := http.HandlerFunc(pages.BuildLanding)
 	h.ServeHTTP(rec, req)
 
 	e, err := os.ReadFile("index.html")
@@ -24,6 +24,6 @@ func TestLandingPageContent(t *testing.T) {
 	}
 	a := rec.Body.String()
 	if a != string(e) {
-		t.Errorf("** Failed: Unexpected response body: got %v want %v", a, e)
+		t.Errorf("** Failed: Unexpected response body: got \n%v\n want \n%v\n", a, string(e))
 	}
 }

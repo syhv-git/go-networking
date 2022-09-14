@@ -9,6 +9,5 @@ import (
 func main() {
 	mux := frontend.Routes("assets")
 
-	err := http.ListenAndServe(":9001", mux)
-	log.Fatal(err)
+	log.Fatal(http.ListenAndServe(":9001", mux))
 }

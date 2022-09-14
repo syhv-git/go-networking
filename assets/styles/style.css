@@ -8,9 +8,8 @@ body {
 }
 
 .page-header {
-    background: #4C2A85;
+    background-color: #4C2A85;
     border-bottom: none;
-    top: 0;
     width: 100%;
     z-index: 10;
 }
@@ -18,7 +17,6 @@ body {
 .page-header-div {
     margin: 0 auto;
     padding: 0 25px;
-    max-width: initial;
 }
 
 .navbar {
@@ -58,7 +56,7 @@ body {
     width: 100%;
     padding: 2px 23px 2px 30px;
     outline: 0;
-    background: #aaaaaa;
+    background: #c9c9c9;
 }
 
 .search-icon {
@@ -79,6 +77,37 @@ body {
 .search-input:hover, .search-input:focus {
     border: 1px solid #009688;
     background-color: white;
+}
+
+.nav-pill {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    display: flex;
+    text-align: center;
+    border-radius: 0.25rem;
+    height: 100%;
+}
+
+.nav-pill .nav-item:hover {
+    background-color: #320E3B;
+    transition: 0.3s ease;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #A8A9AD;
+    padding: 0.5rem 1rem
+}
+
+.settings {
+    padding-left: 1rem;
 }
 
 .settings-icon {
