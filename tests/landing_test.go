@@ -1,9 +1,9 @@
 package tests
 
 import (
-	"go-networking/frontend/pages"
 	"net/http"
 	"net/http/httptest"
+	"static-web-template/frontend/pages"
 	"testing"
 )
 
